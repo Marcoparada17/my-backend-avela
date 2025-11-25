@@ -1,15 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Ecommerce template for Payload",
+  "description": "Backend for Avela Store (PayloadCMS)",
   "license": "MIT",
   "type": "module",
-"scripts": {
-  "payload:migrate": "payload migrate",
-  "build": "payload migrate && next build",
-  "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-  "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
-},
+  "scripts": {
+    "dev": "payload dev",
+    "build": "payload migrate",
+    "start": "payload start"
+  },
   "dependencies": {
     "@payloadcms/admin-bar": "3.64.0",
     "@payloadcms/db-postgres": "^3.64.0",
