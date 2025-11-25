@@ -5,9 +5,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "payload dev",
-    "build": "payload migrate",
-    "start": "payload start"
+    "dev": "next dev",
+    "build": "payload migrate && next build",
+    "start": "next start"
   },
   "dependencies": {
     "@payloadcms/admin-bar": "3.64.0",
