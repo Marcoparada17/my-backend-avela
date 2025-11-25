@@ -1,5 +1,5 @@
 // storage-adapter-import-placeholder
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 
 import {
   BoldFeature,
@@ -31,7 +31,6 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
 
-  // 👇🔥 CORS FIX COMPLETO
   cors: [
     'http://localhost:3000',
     'http://localhost:3001',
@@ -52,9 +51,10 @@ export default buildConfig({
 
   collections: [Users, Pages, Categories, Media],
 
-  db: sqliteAdapter({
-    client: {
-      url: process.env.DATABASE_URI || '',
+  // 🔥 CAMBIO IMPORTANTE: PostgreSQL en lugar de SQLite
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URL, // tu variable real
     },
   }),
 
